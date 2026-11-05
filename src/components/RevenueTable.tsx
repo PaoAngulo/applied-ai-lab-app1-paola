@@ -118,29 +118,29 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
               </th>
               <th
                 onClick={() => handleSort('q1')}
-                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none"
+                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none bg-amber-50/40"
               >
-                <div className="flex items-center justify-end gap-1">
+                <div className="flex items-center justify-end gap-1 text-amber-900">
                   <span>Q1</span>
-                  <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                  <ArrowUpDown className="w-3 h-3 text-amber-500" />
                 </div>
               </th>
               <th
                 onClick={() => handleSort('q2')}
-                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none bg-sky-50/50"
+                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none bg-blue-50/70"
               >
-                <div className="flex items-center justify-end gap-1 text-sky-800">
+                <div className="flex items-center justify-end gap-1 text-[#003893]">
                   <span>Q2</span>
-                  <ArrowUpDown className="w-3 h-3 text-sky-600" />
+                  <ArrowUpDown className="w-3 h-3 text-[#003893]" />
                 </div>
               </th>
               <th
                 onClick={() => handleSort('q3')}
-                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none bg-emerald-50/50"
+                className="py-3 px-3 text-right cursor-pointer hover:text-slate-900 select-none bg-red-50/70"
               >
-                <div className="flex items-center justify-end gap-1 text-emerald-800">
+                <div className="flex items-center justify-end gap-1 text-[#CE1126]">
                   <span>Q3</span>
-                  <ArrowUpDown className="w-3 h-3 text-emerald-600" />
+                  <ArrowUpDown className="w-3 h-3 text-[#CE1126]" />
                 </div>
               </th>
               <th
@@ -163,12 +163,12 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
               </th>
               <th
                 onClick={() => handleSort('q2ToQ3DollarDelta')}
-                className="py-3 px-4 text-right cursor-pointer hover:text-slate-900 select-none bg-indigo-50/50 text-indigo-900"
+                className="py-3 px-4 text-right cursor-pointer hover:text-slate-900 select-none bg-amber-100/60 text-amber-950"
               >
                 <div className="flex items-center justify-end gap-1 font-extrabold">
-                  <Sparkles className="w-3 h-3 text-indigo-600" />
+                  <Sparkles className="w-3 h-3 text-[#003893]" />
                   <span>Q2 → Q3 Shift</span>
-                  <ArrowUpDown className="w-3 h-3 text-indigo-500" />
+                  <ArrowUpDown className="w-3 h-3 text-amber-700" />
                 </div>
               </th>
             </tr>
@@ -186,7 +186,7 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
                     onClick={() => setExpandedRegion(isExpanded ? null : row.region)}
                     className={`transition-colors cursor-pointer group ${
                       isTop
-                        ? 'bg-amber-50/40 hover:bg-amber-50/70 font-semibold'
+                        ? 'bg-amber-50/60 hover:bg-amber-50/90 font-semibold'
                         : isExpanded
                         ? 'bg-slate-50/80'
                         : 'hover:bg-slate-50/60'
@@ -201,19 +201,19 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
                         )}
                         <span className="font-semibold">{row.region}</span>
                         {isTop && (
-                          <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                          <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-bold bg-[#FCD116]/30 text-amber-950 border border-amber-400/60">
                             Largest Shift
                           </span>
                         )}
                       </div>
                     </td>
-                    <td className="py-3.5 px-3 text-right font-mono text-slate-600">
+                    <td className="py-3.5 px-3 text-right font-mono text-slate-600 bg-amber-50/20">
                       {formatCurrency(row.q1)}
                     </td>
-                    <td className="py-3.5 px-3 text-right font-mono font-medium text-sky-900 bg-sky-50/30">
+                    <td className="py-3.5 px-3 text-right font-mono font-medium text-blue-950 bg-blue-50/40">
                       {formatCurrency(row.q2)}
                     </td>
-                    <td className="py-3.5 px-3 text-right font-mono font-medium text-emerald-900 bg-emerald-50/30">
+                    <td className="py-3.5 px-3 text-right font-mono font-medium text-red-950 bg-red-50/40">
                       {formatCurrency(row.q3)}
                     </td>
                     <td className="py-3.5 px-3 text-right font-mono text-slate-600">
@@ -222,16 +222,16 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
                     <td className="py-3.5 px-4 text-right font-mono font-bold text-slate-900">
                       {formatCurrency(row.total)}
                     </td>
-                    <td className="py-3.5 px-4 text-right font-mono bg-indigo-50/30">
+                    <td className="py-3.5 px-4 text-right font-mono bg-amber-50/40">
                       <div className="inline-flex items-center justify-end gap-1">
                         {isPositive ? (
                           <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
                         ) : (
-                          <TrendingDown className="w-3.5 h-3.5 text-rose-600" />
+                          <TrendingDown className="w-3.5 h-3.5 text-[#CE1126]" />
                         )}
                         <span
                           className={`font-bold ${
-                            isPositive ? 'text-emerald-700' : 'text-rose-700'
+                            isPositive ? 'text-emerald-700' : 'text-[#CE1126]'
                           }`}
                         >
                           {formatCurrency(row.q2ToQ3DollarDelta)}
@@ -355,13 +355,13 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
               <td className="py-3.5 px-4 font-extrabold uppercase tracking-wide">
                 Total (All Regions)
               </td>
-              <td className="py-3.5 px-3 text-right font-mono">
+              <td className="py-3.5 px-3 text-right font-mono bg-amber-100/50 text-amber-950">
                 {formatCurrency(totalByQuarter.Q1)}
               </td>
-              <td className="py-3.5 px-3 text-right font-mono bg-sky-100/50 text-sky-950">
+              <td className="py-3.5 px-3 text-right font-mono bg-blue-100/60 text-[#003893] font-bold">
                 {formatCurrency(totalByQuarter.Q2)}
               </td>
-              <td className="py-3.5 px-3 text-right font-mono bg-emerald-100/50 text-emerald-950">
+              <td className="py-3.5 px-3 text-right font-mono bg-red-100/60 text-[#CE1126] font-bold">
                 {formatCurrency(totalByQuarter.Q3)}
               </td>
               <td className="py-3.5 px-3 text-right font-mono">
@@ -370,10 +370,10 @@ export const RevenueTable: React.FC<RevenueTableProps> = ({ calculatedData }) =>
               <td className="py-3.5 px-4 text-right font-mono font-extrabold text-sm">
                 {formatCurrency(grandTotal)}
               </td>
-              <td className="py-3.5 px-4 text-right font-mono bg-indigo-100/40">
+              <td className="py-3.5 px-4 text-right font-mono bg-amber-100/50">
                 <span
                   className={
-                    totalQ2Q3Delta >= 0 ? 'text-emerald-700' : 'text-rose-700'
+                    totalQ2Q3Delta >= 0 ? 'text-emerald-700' : 'text-[#CE1126]'
                   }
                 >
                   {totalQ2Q3Delta >= 0 ? '+' : ''}

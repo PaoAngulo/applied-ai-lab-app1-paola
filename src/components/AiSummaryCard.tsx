@@ -57,15 +57,15 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
     : [];
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-900 text-white shadow-xl border border-indigo-800/40">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-violet-600/10 blur-3xl pointer-events-none" />
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#001D4A] via-[#051838] to-[#0A1128] text-white shadow-xl border border-blue-900/60">
+      {/* Decorative Colombian background glows: Golden Yellow & Carmine Red */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-[#FCD116]/12 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-[#CE1126]/15 blur-3xl pointer-events-none" />
 
       {/* Header bar */}
       <div className="relative z-10 px-5 sm:px-6 pt-5 pb-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300">
+          <div className="w-8 h-8 rounded-lg bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-[#FCD116]">
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
@@ -73,7 +73,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
               <h3 className="text-sm sm:text-base font-bold text-white tracking-wide">
                 Executive AI Intelligence
               </h3>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-400/15 text-amber-200 border border-amber-400/30">
                 3-Sentence Q2 → Q3 Variance Summary
               </span>
             </div>
@@ -86,7 +86,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
         {/* Model and Action controls */}
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-slate-300">
-            <Cpu className="w-3.5 h-3.5 text-indigo-400" />
+            <Cpu className="w-3.5 h-3.5 text-amber-400" />
             <span className="text-[11px] font-mono text-slate-300">
               {isAi ? 'gemini-3.8-flash' : 'Deterministic Calculation'}
             </span>
@@ -96,7 +96,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
             onClick={onRegenerate}
             disabled={isLoading}
             title="Re-run AI synthesis"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all border border-indigo-400/30 shadow-xs cursor-pointer disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#001D4A] bg-[#FCD116] hover:bg-yellow-400 transition-all shadow-sm cursor-pointer disabled:opacity-50"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
             <span>{isLoading ? 'Synthesizing...' : 'Regenerate'}</span>
@@ -127,8 +127,8 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
       <div className="relative z-10 px-5 sm:px-6 py-5">
         {isLoading ? (
           <div className="py-8 flex flex-col items-center justify-center text-center">
-            <div className="w-10 h-10 border-3 border-indigo-400/20 border-t-indigo-400 rounded-full animate-spin mb-3" />
-            <p className="text-sm font-medium text-indigo-200">
+            <div className="w-10 h-10 border-3 border-amber-400/20 border-t-[#FCD116] rounded-full animate-spin mb-3" />
+            <p className="text-sm font-medium text-amber-200">
               Analyzing quarterly revenue variance for region "{calculatedData.topChangedRegion}"...
             </p>
             <p className="text-xs text-slate-400 mt-1">
@@ -157,9 +157,9 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
                 sentences.map((sentence, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-white/[0.04] border border-white/5 hover:border-indigo-500/30 transition-colors flex items-start gap-3"
+                    className="p-3.5 rounded-xl bg-white/[0.04] border border-white/5 hover:border-amber-400/30 transition-colors flex items-start gap-3"
                   >
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold flex items-center justify-center mt-0.5">
+                    <span className="shrink-0 w-6 h-6 rounded-full bg-gradient-to-tr from-[#FCD116] to-amber-300 text-[#001D4A] text-xs font-black flex items-center justify-center mt-0.5 shadow-sm">
                       {idx + 1}
                     </span>
                     <p className="text-sm sm:text-[15px] leading-relaxed text-slate-100 font-normal">
@@ -182,7 +182,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
                 <span className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider block">
                   Top Changed Region
                 </span>
-                <span className="text-sm font-bold text-indigo-300">
+                <span className="text-sm font-bold text-[#FCD116]">
                   {topMetrics.region}
                 </span>
               </div>
@@ -193,7 +193,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
                 </span>
                 <span
                   className={`text-sm font-bold ${
-                    isGrowth ? 'text-emerald-400' : 'text-rose-400'
+                    isGrowth ? 'text-emerald-400' : 'text-[#f87171]'
                   }`}
                 >
                   {formatCurrency(topMetrics.dollarDelta)} ({formatPercent(topMetrics.pctDelta)})
@@ -226,7 +226,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
         <div className="mt-4 pt-3 border-t border-white/10">
           <button
             onClick={() => setShowCalculationDetails(!showCalculationDetails)}
-            className="flex items-center justify-between w-full text-xs text-indigo-300 hover:text-indigo-200 py-1 transition-colors cursor-pointer"
+            className="flex items-center justify-between w-full text-xs text-amber-300 hover:text-amber-200 py-1 transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -250,7 +250,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1.5 bg-white/5 p-3 rounded-lg border border-white/5">
-                  <p className="text-indigo-300 font-bold text-[11px] uppercase tracking-wider">
+                  <p className="text-amber-300 font-bold text-[11px] uppercase tracking-wider">
                     {topMetrics.region} Q2 vs Q3 Core Figures
                   </p>
                   <p>• Q2 Revenue: {formatCurrency(topMetrics.q2Revenue)}</p>
@@ -264,7 +264,7 @@ export const AiSummaryCard: React.FC<AiSummaryCardProps> = ({
                 </div>
 
                 <div className="space-y-1.5 bg-white/5 p-3 rounded-lg border border-white/5">
-                  <p className="text-indigo-300 font-bold text-[11px] uppercase tracking-wider">
+                  <p className="text-amber-300 font-bold text-[11px] uppercase tracking-wider">
                     Calculated Drivers for {topMetrics.region}
                   </p>
                   <p>• Top Channel: {topMetrics.topChannel?.name} (Shift: {formatCurrency(topMetrics.topChannel?.delta || 0)})</p>

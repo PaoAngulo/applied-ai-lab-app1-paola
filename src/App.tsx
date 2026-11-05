@@ -128,7 +128,7 @@ export default function App() {
   const q2Q3TotalPct = q2Total > 0 ? (q2Q3TotalDelta / q2Total) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-[#FCD116] selection:text-[#001D4A]">
       {/* Global Header */}
       <Header
         onLoadSample={handleLoadSample}
@@ -152,7 +152,7 @@ export default function App() {
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
               {/* Grand Total Revenue */}
               <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-                <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider block mb-1">
+                <span className="text-[10px] font-bold uppercase text-amber-600 tracking-wider block mb-1">
                   Total Revenue
                 </span>
                 <span className="text-xl sm:text-2xl font-extrabold text-slate-900 font-mono">
@@ -163,29 +163,29 @@ export default function App() {
                 </span>
               </div>
 
-              {/* Q2 Total */}
-              <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-                <span className="text-[10px] font-bold uppercase text-sky-600 tracking-wider block mb-1">
+              {/* Q2 Total (Azul) */}
+              <div className="bg-white p-4 rounded-xl border border-blue-200/80 shadow-2xs">
+                <span className="text-[10px] font-bold uppercase text-[#003893] tracking-wider block mb-1">
                   Q2 Revenue
                 </span>
-                <span className="text-xl sm:text-2xl font-extrabold text-sky-950 font-mono">
+                <span className="text-xl sm:text-2xl font-extrabold text-[#003893] font-mono">
                   {formatCurrency(q2Total)}
                 </span>
                 <span className="text-[11px] text-slate-500 block mt-1">
-                  Base comparison quarter
+                  Base comparison quarter (Azul)
                 </span>
               </div>
 
-              {/* Q3 Total */}
-              <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-                <span className="text-[10px] font-bold uppercase text-emerald-600 tracking-wider block mb-1">
+              {/* Q3 Total (Rojo) */}
+              <div className="bg-white p-4 rounded-xl border border-red-200/80 shadow-2xs">
+                <span className="text-[10px] font-bold uppercase text-[#CE1126] tracking-wider block mb-1">
                   Q3 Revenue
                 </span>
-                <span className="text-xl sm:text-2xl font-extrabold text-emerald-950 font-mono">
+                <span className="text-xl sm:text-2xl font-extrabold text-[#CE1126] font-mono">
                   {formatCurrency(q3Total)}
                 </span>
                 <span className="text-[11px] text-slate-500 block mt-1">
-                  Post-shift quarter
+                  Shift quarter (Rojo)
                 </span>
               </div>
 
@@ -197,7 +197,7 @@ export default function App() {
                 <div className="flex items-baseline gap-1.5">
                   <span
                     className={`text-xl sm:text-2xl font-extrabold font-mono ${
-                      q2Q3TotalDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'
+                      q2Q3TotalDelta >= 0 ? 'text-emerald-700' : 'text-[#CE1126]'
                     }`}
                   >
                     {q2Q3TotalDelta >= 0 ? '+' : ''}
@@ -209,18 +209,18 @@ export default function App() {
                 </span>
               </div>
 
-              {/* Top Shift Region Badge */}
-              <div className="col-span-2 lg:col-span-1 bg-gradient-to-br from-indigo-50 to-amber-50 p-4 rounded-xl border border-indigo-200/80 shadow-2xs">
+              {/* Top Shift Region Badge (Colombian Tricolor Gradient) */}
+              <div className="col-span-2 lg:col-span-1 bg-gradient-to-br from-amber-50 via-blue-50/40 to-red-50/40 p-4 rounded-xl border border-amber-300 shadow-2xs">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-bold uppercase text-indigo-800 tracking-wider">
+                  <span className="text-[10px] font-bold uppercase text-[#003893] tracking-wider">
                     Most Changed Region
                   </span>
-                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
                 </div>
-                <span className="text-xl sm:text-2xl font-extrabold text-indigo-950">
+                <span className="text-xl sm:text-2xl font-extrabold text-[#001D4A]">
                   {calculatedData?.topChangedRegion || 'N/A'}
                 </span>
-                <span className="text-[11px] font-semibold text-indigo-700 block mt-1">
+                <span className="text-[11px] font-semibold text-[#003893] block mt-1">
                   {calculatedData?.topRegionMetrics.dollarDelta !== undefined && (
                     <>
                       {calculatedData.topRegionMetrics.dollarDelta >= 0 ? '+' : ''}
@@ -235,8 +235,8 @@ export default function App() {
             {/* Quick Upload Banner for Swapping File */}
             <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-white border border-slate-200 text-xs">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
-                  <FileSpreadsheet className="w-4 h-4 text-indigo-600" />
+                <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-[#003893]">
+                  <FileSpreadsheet className="w-4 h-4 text-[#003893]" />
                 </div>
                 <div>
                   <span className="font-semibold text-slate-800">{fileName}</span>
@@ -250,13 +250,13 @@ export default function App() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsRawDataOpen(true)}
-                  className="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-medium transition-colors cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:border-[#003893] hover:text-[#003893] font-medium transition-colors cursor-pointer"
                 >
                   Inspect Raw CSV Rows
                 </button>
 
-                <label className="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
-                  <Upload className="w-3.5 h-3.5" />
+                <label className="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-300 font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
+                  <Upload className="w-3.5 h-3.5 text-[#003893]" />
                   <span>Upload Another CSV</span>
                   <input
                     type="file"

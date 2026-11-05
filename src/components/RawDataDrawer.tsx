@@ -51,8 +51,8 @@ export const RawDataDrawer: React.FC<RawDataDrawerProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between gap-3 bg-slate-50">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
-              <FileSpreadsheet className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-amber-100 text-[#003893] flex items-center justify-center font-bold">
+              <FileSpreadsheet className="w-4 h-4 text-[#003893]" />
             </div>
             <div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900">
@@ -85,7 +85,7 @@ export const RawDataDrawer: React.FC<RawDataDrawerProps> = ({
                   setSearch(e.target.value);
                   setPage(1);
                 }}
-                className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#003893]"
               />
             </div>
           </div>

@@ -10,13 +10,13 @@ interface RevenueChartProps {
 type ViewMode = 'by_region' | 'by_quarter' | 'stacked';
 
 const QUARTER_COLORS: Record<QuarterName, { bg: string; fill: string; border: string; label: string }> = {
-  Q1: { bg: 'bg-indigo-500', fill: '#6366f1', border: '#4f46e5', label: 'Quarter 1' },
-  Q2: { bg: 'bg-sky-500', fill: '#0ea5e9', border: '#0284c7', label: 'Quarter 2' },
-  Q3: { bg: 'bg-emerald-500', fill: '#10b981', border: '#059669', label: 'Quarter 3' },
-  Q4: { bg: 'bg-purple-500', fill: '#a855f7', border: '#9333ea', label: 'Quarter 4' },
+  Q1: { bg: 'bg-amber-400', fill: '#F59E0B', border: '#D97706', label: 'Quarter 1 (Amarillo)' },
+  Q2: { bg: 'bg-blue-700', fill: '#003893', border: '#002868', label: 'Quarter 2 (Azul)' },
+  Q3: { bg: 'bg-red-600', fill: '#CE1126', border: '#A60D1E', label: 'Quarter 3 (Rojo)' },
+  Q4: { bg: 'bg-amber-600', fill: '#B45309', border: '#92400E', label: 'Quarter 4' },
 };
 
-const REGION_PALETTE = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#64748b'];
+const REGION_PALETTE = ['#003893', '#F59E0B', '#CE1126', '#1E40AF', '#FCD116', '#DC2626', '#001D4A'];
 
 export const RevenueChart: React.FC<RevenueChartProps> = ({ calculatedData }) => {
   const [viewMode, setViewMode] = useState<ViewMode>('by_region');
@@ -71,8 +71,9 @@ export const RevenueChart: React.FC<RevenueChartProps> = ({ calculatedData }) =>
             <h3 className="text-base font-bold text-slate-900 tracking-tight">
               Total Revenue by Region & Quarter
             </h3>
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-              <Sparkles className="w-3 h-3 text-emerald-600" />
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#003893] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CE1126]" />
+              <Sparkles className="w-3 h-3 text-[#F59E0B]" />
               Q2 vs Q3 Focus
             </span>
           </div>
@@ -87,7 +88,7 @@ export const RevenueChart: React.FC<RevenueChartProps> = ({ calculatedData }) =>
             onClick={() => setViewMode('by_region')}
             className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               viewMode === 'by_region'
-                ? 'bg-white text-indigo-700 shadow-xs'
+                ? 'bg-white text-[#003893] shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -97,7 +98,7 @@ export const RevenueChart: React.FC<RevenueChartProps> = ({ calculatedData }) =>
             onClick={() => setViewMode('by_quarter')}
             className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               viewMode === 'by_quarter'
-                ? 'bg-white text-indigo-700 shadow-xs'
+                ? 'bg-white text-[#003893] shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -107,7 +108,7 @@ export const RevenueChart: React.FC<RevenueChartProps> = ({ calculatedData }) =>
             onClick={() => setViewMode('stacked')}
             className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               viewMode === 'stacked'
-                ? 'bg-white text-indigo-700 shadow-xs'
+                ? 'bg-white text-[#003893] shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >

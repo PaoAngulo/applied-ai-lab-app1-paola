@@ -29,8 +29,8 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-700">
-              <Compass className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-[#003893]">
+              <Compass className="w-4 h-4 stroke-[2.5]" />
             </div>
             <h3 className="text-base font-bold text-slate-900 tracking-tight">
               Calculated Q2 → Q3 Variance Drivers for "{topMetrics.region}"
@@ -38,14 +38,14 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
           </div>
           <p className="text-xs text-slate-500 mt-0.5">
             The quantitative calculations explaining why {topMetrics.region} shifted by{' '}
-            <strong className={isGrowth ? 'text-emerald-700' : 'text-rose-700'}>
+            <strong className={isGrowth ? 'text-emerald-700' : 'text-[#CE1126]'}>
               {formatCurrency(topMetrics.dollarDelta)} ({formatPercent(topMetrics.pctDelta)})
             </strong>
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#003893]" />
           <span>Source of Truth for AI Summary</span>
         </div>
       </div>
@@ -61,13 +61,13 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
             {isGrowth ? (
               <TrendingUp className="w-4 h-4 text-emerald-500" />
             ) : (
-              <TrendingDown className="w-4 h-4 text-rose-500" />
+              <TrendingDown className="w-4 h-4 text-[#CE1126]" />
             )}
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span
               className={`text-xl font-extrabold font-mono ${
-                isGrowth ? 'text-emerald-700' : 'text-rose-700'
+                isGrowth ? 'text-emerald-700' : 'text-[#CE1126]'
               }`}
             >
               {isGrowth ? '+' : ''}
@@ -92,12 +92,12 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
             <span className="font-semibold uppercase tracking-wider text-[10px]">
               2. Unit Volume Driver
             </span>
-            <Package className="w-4 h-4 text-indigo-500" />
+            <Package className="w-4 h-4 text-[#003893]" />
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span
               className={`text-xl font-extrabold font-mono ${
-                topMetrics.unitsDelta >= 0 ? 'text-indigo-700' : 'text-rose-700'
+                topMetrics.unitsDelta >= 0 ? 'text-[#003893]' : 'text-[#CE1126]'
               }`}
             >
               {topMetrics.unitsDelta >= 0 ? '+' : ''}
@@ -122,7 +122,7 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
             <span className="font-semibold uppercase tracking-wider text-[10px]">
               3. Discount & Pricing
             </span>
-            <Percent className="w-4 h-4 text-amber-500" />
+            <Percent className="w-4 h-4 text-[#F59E0B]" />
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span className="text-xl font-extrabold font-mono text-slate-800">
@@ -146,7 +146,7 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
             <span className="font-semibold uppercase tracking-wider text-[10px]">
               4. Realization / Unit
             </span>
-            <Radio className="w-4 h-4 text-violet-500" />
+            <Radio className="w-4 h-4 text-[#CE1126]" />
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span className="text-xl font-extrabold font-mono text-slate-800">
@@ -171,11 +171,56 @@ export const CalculatedDriversBridge: React.FC<CalculatedDriversBridgeProps> = (
         <div className="bg-slate-50/70 p-4 rounded-xl border border-slate-200/80">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-              <Radio className="w-3.5 h-3.5 text-indigo-600" />
+              <Radio className="w-3.5 h-3.5 text-[#003893]" />
               Channel Performance (Q2 → Q3)
             </span>
             <span className="text-[11px] text-slate-500 font-medium">
               Top: <strong>{topMetrics.topChannel?.name || 'N/A'}</strong>
+            </span>
+          </div>
+
+          <div className="space-y-2">
+            {topMetrics.channels.map((ch) => {
+              const chGrowth = ch.delta >= 0;
+              return (
+                <div
+                  key={ch.name}
+                  className="bg-white p-2.5 rounded-lg border border-slate-200 flex items-center justify-between text-xs"
+                >
+                  <div>
+                    <span className="font-bold text-slate-800">{ch.name}</span>
+                    <span className="text-slate-400 ml-2 font-mono text-[11px]">
+                      {formatCurrency(ch.q2Revenue)} → {formatCurrency(ch.q3Revenue)}
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span
+                      className={`font-mono font-bold ${
+                        chGrowth ? 'text-emerald-700' : 'text-[#CE1126]'
+                      }`}
+                    >
+                      {chGrowth ? '+' : ''}
+                      {formatCurrency(ch.delta)}
+                    </span>
+                    <span className="text-[10px] text-slate-500 ml-1">
+                      ({formatPercent(ch.pctDelta)})
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Product Breakdown */}
+        <div className="bg-slate-50/70 p-4 rounded-xl border border-slate-200/80">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <Boxes className="w-3.5 h-3.5 text-[#CE1126]" />
+              Product Performance (Q2 → Q3)
+            </span>
+            <span className="text-[11px] text-slate-500 font-medium">
+              Top: <strong>{topMetrics.topProduct?.name || 'N/A'}</strong>
             </span>
           </div>
 

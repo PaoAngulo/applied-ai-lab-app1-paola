@@ -90,8 +90,9 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Hero Intro */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100/80 text-indigo-800 mb-3 border border-indigo-200">
-          <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 mb-3 border border-amber-300">
+          <span className="w-2 h-2 rounded-full bg-[#CE1126]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#003893]" />
           Quarterly Regional Sales Analytics
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -113,8 +114,8 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
         onDrop={handleDrop}
         className={`relative border-2 border-dashed rounded-2xl p-8 sm:p-10 text-center transition-all bg-white shadow-sm ${
           isDragging
-            ? 'border-indigo-500 bg-indigo-50/50 scale-[1.01]'
-            : 'border-slate-300 hover:border-indigo-400 hover:bg-slate-50/50'
+            ? 'border-[#003893] bg-blue-50/40 scale-[1.01]'
+            : 'border-slate-300 hover:border-[#003893] hover:bg-slate-50/50'
         }`}
       >
         <input
@@ -129,8 +130,8 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
           }}
         />
 
-        <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-inner">
-          <UploadCloud className="w-8 h-8" />
+        <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-50 border border-amber-200 text-[#003893] flex items-center justify-center shadow-inner">
+          <UploadCloud className="w-8 h-8 stroke-[2.2]" />
         </div>
 
         <h3 className="text-base font-semibold text-slate-900 mb-1">
@@ -145,7 +146,7 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
             type="button"
             onClick={() => fileInputRef.current?.click()}
             disabled={isProcessing}
-            className="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm shadow-indigo-200 transition-all cursor-pointer"
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#003893] text-white hover:bg-[#002d77] shadow-sm shadow-blue-900/20 transition-all cursor-pointer"
           >
             {isProcessing ? 'Processing File...' : 'Browse Computer'}
           </button>
@@ -156,16 +157,16 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
             type="button"
             onClick={onLoadSample}
             disabled={isProcessing}
-            className="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-900 text-white hover:bg-slate-800 shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#001D4A] text-white hover:bg-slate-800 shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
           >
-            <FileSpreadsheet className="w-3.5 h-3.5 text-indigo-300" />
+            <FileSpreadsheet className="w-3.5 h-3.5 text-[#FCD116]" />
             <span>Load Sample Sales Data</span>
           </button>
         </div>
 
         {errorMsg && (
-          <div className="mt-5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center justify-center gap-2 max-w-lg mx-auto text-left">
-            <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+          <div className="mt-5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-[#CE1126] text-xs flex items-center justify-center gap-2 max-w-lg mx-auto text-left">
+            <AlertCircle className="w-4 h-4 shrink-0 text-[#CE1126]" />
             <span>{errorMsg}</span>
           </div>
         )}
@@ -174,7 +175,7 @@ export const CsvUploader: React.FC<CsvUploaderProps> = ({
       {/* Expected Schema Specification Card */}
       <div className="mt-8 bg-white border border-slate-200 rounded-xl p-5 shadow-2xs">
         <div className="flex items-center gap-2 mb-3">
-          <Info className="w-4 h-4 text-indigo-600" />
+          <Info className="w-4 h-4 text-[#003893]" />
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">
             Expected CSV Format & Columns
           </h4>
